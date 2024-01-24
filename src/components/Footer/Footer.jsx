@@ -8,9 +8,9 @@ export default function Footer() {
                 <div>
                     <Link to={"/"} className="logo">
                         <SiKasasmart size={30} className="me-2" />
-                        <span className="fs-4">CG Mart</span>
+                        <span className="fs-4">Shopping Mall</span>
                     </Link>
-                    <p>CG Mart {(new Date).getFullYear()}</p>
+                    <p>Shopping Mall {(new Date).getFullYear()}</p>
                     <p>All Right Reserved &copy;</p>
                 </div>
                 <div>

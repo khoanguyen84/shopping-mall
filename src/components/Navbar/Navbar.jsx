@@ -9,7 +9,7 @@ function Navbar() {
             <div className="d-flex align-items-center" style={{ minWidth: "230px" }}>
                 <Link to={"/"} className="logo">
                     <SiKasasmart size={30} className="me-2" /> 
-                    <span className="fs-4">CG Mart</span>
+                    <span className="fs-4">Shopping Mall</span>
                 </Link>
             </div>
             <div className="d-flex flex-grow-1 justify-content-between">
