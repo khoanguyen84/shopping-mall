@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import Recommended from "../components/Brand/Brand";
 import Products from "../components/Products/Products";
 import MainLayout from "../layouts/MainLayout";
 

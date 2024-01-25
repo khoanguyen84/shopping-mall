@@ -95,12 +95,12 @@ function Brand() {
                 collapse && (
                     <div className="form-group">
                         {
-                            brandList.map(brand => (
-                                <button key={brand.value}
-                                    className={`btn btn-sm btn-outline-secondary me-1 mb-1 ${brand.value === 'All' ? 'active' : ''}`}
+                            brandList.map(item => (
+                                <button key={item.value}
+                                    className={`btn btn-sm btn-outline-secondary me-1 mb-1 ${item.value === 'All' ? 'active' : ''}`}
                                     type="button"
                                 >
-                                    {brand.name}
+                                    {item.name}
                                 </button>
                             ))
                         }

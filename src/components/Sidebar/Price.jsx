@@ -49,19 +49,19 @@ function Price() {
                 collapse && (
                     <div className="form-group">
                         {
-                            prices.map((price, index) => (
-                                <div key={price} className="form-check py-1">
+                            prices.map((item, index) => (
+                                <div key={item} className="form-check py-1">
                                     <input className="form-check-input" type="radio" name="price"
                                         id={`price_${index}`}
-                                        value={price.value}
-                                        defaultChecked={price.name === 'All'}
+                                        value={item.value}
+                                        defaultChecked={item.name === 'All'}
                                     />
                                     <label
                                         role="button"
                                         htmlFor={`price_${index}`}
-                                        className={`form-check-label ${price.name === 'All' ? 'text-decoration-underline fw-bolder' : ''}`}
+                                        className={`form-check-label ${item.name === 'All' ? 'text-decoration-underline fw-bolder' : ''}`}
                                     >
-                                        {price.name}
+                                        {item.name}
                                     </label>
                                 </div>
                             ))
