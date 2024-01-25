@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ShoppingContext } from "../../context/shopping-context";
+import { setSearchPrice } from "../../reducer/actions";
 
 const prices = [
     {
@@ -37,6 +39,8 @@ const prices = [
 ]
 function Price() {
     const [collapse, setCollapse] = useState(false)
+    const { dispatch, state } = useContext(ShoppingContext)
+    const { filters: { price } } = state
     return (
         <div className="accordion-item  py-2 d-flex flex-column justify-content-center">
             <h5 className="accordion-header">
@@ -50,16 +54,17 @@ function Price() {
                     <div className="form-group">
                         {
                             prices.map((item, index) => (
-                                <div key={item} className="form-check py-1">
+                                <div key={item.value} className="form-check py-1">
                                     <input className="form-check-input" type="radio" name="price"
                                         id={`price_${index}`}
                                         value={item.value}
-                                        defaultChecked={item.name === 'All'}
+                                        defaultChecked={item.name === '0,0'}
+                                        onChange={() => dispatch(setSearchPrice(item.value))}
                                     />
                                     <label
                                         role="button"
                                         htmlFor={`price_${index}`}
-                                        className={`form-check-label ${item.name === 'All' ? 'text-decoration-underline fw-bolder' : ''}`}
+                                        className={`form-check-label ${item.value === price ? 'text-decoration-underline fw-bolder' : ''}`}
                                     >
                                         {item.name}
                                     </label>

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ShoppingContext } from "../../context/shopping-context";
+import { setSearchBrand } from "../../reducer/actions";
 
 const brandList = [
     { "value": 'All', "name": 'All Products' },
@@ -83,6 +85,8 @@ const brandList = [
 ]
 function Brand() {
     const [collapse, setCollapse] = useState(false)
+    const { dispatch, state } = useContext(ShoppingContext)
+    const { filters: { brand } } = state
     return (
         <div className="accordion-item py-2 d-flex flex-column">
             <h5 className="accordion-header">
@@ -97,8 +101,9 @@ function Brand() {
                         {
                             brandList.map(item => (
                                 <button key={item.value}
-                                    className={`btn btn-sm btn-outline-secondary me-1 mb-1 ${item.value === 'All' ? 'active' : ''}`}
+                                    className={`btn btn-sm btn-outline-secondary me-1 mb-1 ${item.value === brand ? 'active' : ''}`}
                                     type="button"
+                                    onClick={() => dispatch(setSearchBrand(item.value))}
                                 >
                                     {item.name}
                                 </button>
