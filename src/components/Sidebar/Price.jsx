@@ -27,11 +27,11 @@ const prices = [
     },
     {
         value: '750,1000',
-        name: "$750-$1000"
+        name: "$750-$1.000"
     },
     {
         value: '1000,1000',
-        name: "Over $1000"
+        name: "Over $1.000"
     },
 
 ]
