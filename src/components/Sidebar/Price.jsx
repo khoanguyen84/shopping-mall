@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchPrice } from "../../reducers/actions";
+import { filtersSelector } from "../../reducers/selectors";
 
 const prices = [
     {
@@ -37,6 +40,8 @@ const prices = [
 ]
 function Price() {
     const [collapse, setCollapse] = useState(false)
+    const dispatch = useDispatch()
+    const { price } = useSelector(filtersSelector)
     return (
         <div className="accordion-item  py-2 d-flex flex-column justify-content-center">
             <h5 className="accordion-header">
@@ -55,11 +60,12 @@ function Price() {
                                         id={`price_${index}`}
                                         value={item.value}
                                         defaultChecked={item.name === 'All'}
+                                        onChange={() => dispatch(setSearchPrice(item.value))}
                                     />
                                     <label
                                         role="button"
                                         htmlFor={`price_${index}`}
-                                        className={`form-check-label ${item.name === 'All' ? 'text-decoration-underline fw-bolder' : ''}`}
+                                        className={`form-check-label ${item.name === price ? 'text-decoration-underline fw-bolder' : ''}`}
                                     >
                                         {item.name}
                                     </label>
