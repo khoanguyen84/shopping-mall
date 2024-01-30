@@ -7,13 +7,13 @@ function Navbar() {
     return (
         <div className="container py-4 border-bottom">
             <div className="row">
-                <div className="col-sm-12 col-md-4 col-lg-2">
+                <div className="col-sm-12 col-md-5 col-lg-3">
                     <Link to={"/"} className="logo">
                         <SiKasasmart size={30} className="me-2" />
                         <span className="fs-4">Shopping Mall</span>
                     </Link>
                 </div>
-                <div className="col-sm-12 col-md-8 col-lg-10">
+                <div className="col-sm-12 col-md-7 col-lg-9 d-flex align-items-center justify-content-between">
                     <form className="w-50 d-flex align-items-center">
                         <input
                             type="search"
@@ -23,12 +23,12 @@ function Navbar() {
                         />
                         <FaSearch size={15} style={{ marginLeft: '-25px', color: 'rgba(0,0,0,.2)' }} />
                     </form>
-                    {/* <div className="">
-                    <Link to={'/cart'}>
-                        <FaShoppingCart size={20} className="me-2" role="button" />
-                    </Link>
-                    <FaUser size={20} role="button" />
-                </div> */}
+                    <div className="">
+                        <Link to={'/cart'}>
+                            <FaShoppingCart size={20} className="me-2" role="button" />
+                        </Link>
+                        {/* <FaUser size={20} role="button" /> */}
+                    </div>
                 </div>
             </div>
         </div>

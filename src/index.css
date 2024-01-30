@@ -106,3 +106,10 @@ input[type='search']::placeholder {
   align-items: center;
   justify-content: center;
 }
+
+.customer-info {
+  background-color: rgba(0, 0, 0, .1);
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 4px;
+}
