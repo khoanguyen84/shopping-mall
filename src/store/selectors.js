@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit"
 import { priceAfterDiscount } from "../helper/helper"
 export const productsSelector = (state) => state.products
 export const filtersSelector = (state) => state.filters
+export const cartSelector = (state) => state.cart
 
 export const filteredProductsSelector = createSelector(
     productsSelector,

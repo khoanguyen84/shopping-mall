@@ -24,8 +24,6 @@ function Products() {
         limit += 8
         dispatch(fetchDataThunkAction(limit))
     }
-
-    console.log(limit, totalRows);
     return (
         <div className="py-2 d-flex flex-column justify-content-center">
             <h5>Products</h5>

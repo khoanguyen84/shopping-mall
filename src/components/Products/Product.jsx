@@ -1,8 +1,21 @@
 import React from "react";
 import { FaCartArrowDown, FaStar, FaStarHalf } from "react-icons/fa";
 import GenerateStar from "../Star/GenerateStar";
+import { useDispatch } from "react-redux";
+import cartSlice from "../../redux-toolkit/cartSlice";
+import { toast } from 'react-toastify';
+import { priceAfterDiscount } from "../../helper/helper";
 
 function Product({product}) {
+    product = {
+        ...product,
+        newPrice: priceAfterDiscount(product.price, product.discountPercentage)
+    }
+    const dispatch = useDispatch()
+    const handleAddToCart = () => {
+        dispatch(cartSlice.actions.addToCart(product))
+        toast.success('Product added into cart')
+    }
     return (
         <div className="col-md-3 mb-4">
         <div className="card d-flex align-items-center pt-4">
@@ -28,9 +41,11 @@ function Product({product}) {
                 <div className="d-flex align-items-center justify-content-between">
                     <div>
                         <del className="line-through me-2">${product?.price}</del>
-                        <span className="fs-4 text-danger fw-bolder">${Math.round((product?.price * (1 - Number(product?.discountPercentage) * 0.01)))}</span>
+                        <span className="fs-4 text-danger fw-bolder">${product.newPrice}</span>
                     </div>
-                    <FaCartArrowDown size={20} className="btn-cart" />
+                    <FaCartArrowDown size={20} className="btn-cart" 
+                        onClick={handleAddToCart}
+                    />
                 </div>
             </div>
         </div>
